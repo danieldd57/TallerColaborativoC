@@ -40,9 +40,9 @@ int main(void) {
                 scanf(" %[^\n]", stringVerify);
 
                 if(startWith(string, stringVerify)==0){
-                    printf("The string to be verified (%s) NO exist!",stringVerify);
+                    printf("The string to be verified (%s) NO exist in the start!",stringVerify);
                 }else{
-                    printf("The string to be verified (%s) is t the start",stringVerify );
+                    printf("The string to be verified (%s) is in the start",stringVerify );
                 }
                 break;
             case 6:
