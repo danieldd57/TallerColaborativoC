@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "TallerColaborativoC.exe"
-		},
-		{
-			"path" : "TallerColaborativoC.pdb"
+			"path" : "TallerColaborativoC"
 		}
 	],
 	"backtrace" : 1,
@@ -68,16 +65,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "TallerColaborativoC",
-	"nameOnDisk" : "TallerColaborativoC.exe",
+	"nameOnDisk" : "TallerColaborativoC",
 	"paths" : 
 	{
 		"build" : ".",
