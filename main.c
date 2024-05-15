@@ -22,20 +22,18 @@ int substringFound(char string[], char subString[], int startPosition) {
     return 0;
 }
 
-char* fillChars(char string[], char cToFill, int orientation, int cQuantity) {
-    char* newString = malloc(sizeof(char) * (strlen(string) + cQuantity + 1));
+char* fillChars(char string[], char cToFill, int orientation, int cQuantity){
+    
+    char* newString = malloc(sizeof(char) * (strlen(string) + 1));
     strcpy(newString, string);
-    if (orientation == 0) {
-        for (int i = strlen(string); i < strlen(string) + cQuantity; i++) {
+    for(int i = 0; i < cQuantity && i < strlen(newString); i++){
+        if(orientation == 0){
             newString[i] = cToFill;
+        }else{
+            newString[strlen(newString) - i - 1] = cToFill;
         }
-        newString[strlen(string) + cQuantity] = '\0';
-    } else {
-        for (int i = 0; i < cQuantity; i++) {
-            newString[strlen(string) + i] = cToFill;
-        }
-        newString[strlen(string) + cQuantity] = '\0';
     }
+
     return newString;
 }
 
