@@ -35,10 +35,18 @@ char* fillChars(char string[], char cToFill, int orientation, int cQuantity){
 }
 
 char* substringClassic(char string[], int start, int end){
-    char* newString = malloc(sizeof(char) * (strlen(string) + 1));
+    
+    int length = end - start;
+    if(length < 0){length *= -1;}
+    length++;
+    char* newString = malloc(sizeof(char) * (length + 1));
+    if (newString == NULL) {
+        printf("Error: No se pudo asignar memoria.");
+        exit(1);
+    }
 
     if(start < end){
-        for(int i = start - 1, j = 0; i < end; i++, j++){
+        for(int i = start - 1, j = 0; i <= end - 1; i++, j++){
             newString[j] = string[i];
         }
     }else{
@@ -46,6 +54,7 @@ char* substringClassic(char string[], int start, int end){
             newString[j] = string[i];
         }
     }
+    newString[length] = '\0';
     return newString;
 }
 
@@ -107,44 +116,44 @@ int main(void) {
 
         switch (option) {
             case 1:
-                printf("\nEnter the String: \n");
-                scanf("%s", string);
-                printf("\nEnter the ocurrence: \n");
-                scanf("%s", stringVerify);
-                printf("\nEnter the initial position: \n");
+                printf("Input the String\n");
+                scanf(" %[^\n]", string);
+                printf("Input the ocurrence\n");
+                scanf(" %[^\n]", stringVerify);
+                printf("Input the initial position\n");
                 scanf("%d", &startPosition);
                 int result1 = substringFound(string, stringVerify, startPosition);
                 if(result1 != 0){
-                    printf("\nOcurrence found at %d position", result1);
+                    printf("Ocurrence found at %d position", result1);
                 }else{
-                    printf("\nOcurrence not found");
+                    printf("Ocurrence not found");
                 }
                 break;
             case 2:
                 int cQuantity;
-                printf("\nEnter the String: \n");
-                scanf("%s", string);
-                printf("\nEnter the character to replace in: \n");
+                printf("Input the String\n");
+                scanf(" %[^\n]", string);
+                printf("Input the character to replace in\n");
                 scanf(" %c", &newChar);
-                printf("\nEnter the orientation (0 = left, 1 = right): \n");
+                printf("Input the orientation (0 = left, 1 = right)\n");
                 scanf("%d", &startPosition);
-                printf("\nEnter the character quantity to fill in: \n");
+                printf("Input the character quantity to fill in\n");
                 scanf("%d", &cQuantity);
 
                 char* result2 = fillChars(string, newChar, startPosition, cQuantity);
-                printf("\nThe new string is: %s\n", result2);
+                printf("The new string is: %s", result2);
                 free(result2);
                 break;
             case 3:
 
-                printf("\nEnter the string:\n");
-                scanf("%s", string);
-                printf("\nEnter the start index:\n");
+                printf("Input the string\n");
+                scanf(" %[^\n]", string);
+                printf("Input the start index\n");
                 scanf("%d", &startPosition);
-                printf("\nEnter the end index:\n");
+                printf("Input the end index\n");
                 scanf("%d", &endPosition);
                 char* result3 = substringClassic(string, startPosition, endPosition);
-                printf("\nThe substring is: %s\n", result3);
+                printf("The substring is: %s", result3);
                 free(result3);
                 break;
             case 4:
